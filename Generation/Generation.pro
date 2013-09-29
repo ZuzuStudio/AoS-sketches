@@ -13,6 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        map_graphic.cpp
+        map_graphic.cpp \
+    map_logic.cpp
 
-HEADERS  += map_graphic.h
+HEADERS  += map_graphic.h \
+    map_logic.h
