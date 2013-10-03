@@ -73,42 +73,36 @@ void map_logic::deleteMap()
 void map_logic::generation()
 {
     srand(time(NULL));
-    int x, y;
-    for(int i = 0; i < 3; ++i){
-        x = (width+height)/8;
-        y = (width+height)/8;
-        map[x*i][y*i].type = Land;
+    int x,y;
+    for(int k = 0; k <35; ++k){
+        x = rand()%160;
+        y= rand()%860;
+    for(int i = 0; i < 40; ++i){
+        for(int n = 0; n < 40; ++n)
+        map[i+x][n+y].type = Land;
     }
-    makeFractal((width+height)/8);
+    }
+    makeFractal((width+height)/4);
     makeFile();
 }
 
 void map_logic::makeFractal(int step) {
   for (int y=0; y<width; y+=step) {
     for (int x=0; x<height; x+=step) {
-      // Внутренний цикл вычисляет (cx,cy)
-      // это точка от которой копируется цвет карты
 
-      // добавить случайное смещение
       int cx=x+ ((rand()%2) ? 0 : step);
       int cy=y+ ((rand()%2) ? 0 : step);
 
-      // округлить до ближайшего произведения от step*2
-      // где step*2 предыдущий уровень даталирования
       cx=(cx/(step*2))*step*2;
       cy=(cy/(step*2))*step*2;
 
-      // вращать мир как тор
-      // для гарантии что getCell() и setCell() в пределах границ
       cx=cx%height;
       cy=cy%width;
 
-      // копировать из (cx,cy) в (x,y)
       changeType(getElement(cx,cy).type, x, y);
     }
   }
 
-    // рекурсивное вычисление слудующего уровня детализации
     if (step>1) makeFractal(step/2);
   }
 
