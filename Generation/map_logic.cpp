@@ -40,6 +40,9 @@ void map_logic::resize(int n_height, int n_width)
                     map[i][n].type = Sea;
             }
         }
+    }
+    else
+    {
         deleteMap();
         width = n_width;
         height = n_height;
@@ -75,10 +78,10 @@ void map_logic::generation()
     srand(time(NULL));
     int x,y;
     for(int k = 0; k <35; ++k){
-        x = rand()%160;
-        y= rand()%860;
-    for(int i = 0; i < 40; ++i){
-        for(int n = 0; n < 40; ++n)
+        x = rand()%50;
+        y= rand()%110;
+    for(int i = 0; i < 10; ++i){
+        for(int n = 0; n < 10; ++n)
         map[i+x][n+y].type = Land;
     }
     }
@@ -117,4 +120,14 @@ void map_logic::makeFile(QString filename)
             out << map[i][n].type;
         out << '\n';
     }
+}
+
+int map_logic::getHeight()
+{
+    return height;
+}
+
+int map_logic::getWidth()
+{
+    return width;
 }

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "map_logic.h"
+#include <QGraphicsSvgItem>
 
 class map_graphic : public QWidget
 {
@@ -10,9 +11,14 @@ class map_graphic : public QWidget
 
 public:
     map_graphic(QWidget *parent = 0);
+    map_graphic(map_logic *lmap);
     ~map_graphic();
 private:
-    map_logic *map;
+    QGraphicsSvgItem ***map;
+    QGraphicsSvgItem *land;
+    QGraphicsSvgItem *sea;
+    map_logic *lmap;
+    int width, height;
 };
 
 #endif // MAP_GRAPHIC_H
