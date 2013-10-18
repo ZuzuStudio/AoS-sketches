@@ -77,11 +77,11 @@ void map_logic::generation()
 {
     srand(time(NULL));
     int x,y;
-    for(int k = 0; k <35; ++k){
-        x = rand()%50;
-        y= rand()%110;
-    for(int i = 0; i < 10; ++i){
-        for(int n = 0; n < 10; ++n)
+    for(int k = 0; k <40; ++k){
+        x = rand()%(height - height/5);
+        y= rand()%(width - width/10);
+    for(int i = 0; i < height/10; ++i){
+        for(int n = 0; n < width/10; ++n)
         map[i+x][n+y].type = Land;
     }
     }

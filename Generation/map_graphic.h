@@ -12,6 +12,7 @@ class map_graphic : public QWidget
 public:
     map_graphic(QWidget *parent = 0);
     map_graphic(map_logic *lmap);
+    QGraphicsSvgItem* getElement(int x, int y);
     ~map_graphic();
 private:
     QGraphicsSvgItem ***map;
