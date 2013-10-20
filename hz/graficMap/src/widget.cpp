@@ -6,7 +6,7 @@ Widget::Widget(QWidget *parent) :
     renderer(0)
 {
     image = new QImage(size(), QImage::Format_ARGB32_Premultiplied);
-    renderer = new QSvgRenderer(QString("../src/files/bubbles.svg"), this);//QString("../../hillFlat_res.svg")
+    renderer = new QSvgRenderer(QString("../../hillFlat_res.svg"), this);//QString("../../hillFlat_res.svg")//QString("../src/files/bubbles.svg")
     //---------------//
     connect(renderer, SIGNAL(repaintNeeded()), this, SLOT(repaint()));
 }
@@ -20,9 +20,10 @@ void Widget::paintEvent(QPaintEvent *event)
     }
 
     QPainter imagePainter(image);
-    for(int i = 0; i < 2; ++i)
-        for(int j = 0; j <2; ++j)
-            renderer->render(&imagePainter,QRectF(200*i,200*j,200,200));
+    imagePainter.fillRect(0,0,size().width(),size().height(),Qt::white);
+    for(int i = 0; i < 3; ++i)
+        for(int j = 0; j <3; ++j)
+            renderer->render(&imagePainter,QRectF(300*i,300*j,300,300));
     imagePainter.end();
     //-------------//
     QPainter p(this);
