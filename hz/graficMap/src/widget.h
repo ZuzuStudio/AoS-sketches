@@ -5,6 +5,7 @@
 #include <QSvgRenderer>
 #include <QImage>
 #include <QPainter>
+#include <QKeyEvent>
 
 class Widget : public QWidget
 {
@@ -18,10 +19,12 @@ class Widget : public QWidget
 
     protected:
         void paintEvent(QPaintEvent *event);
+        void keyPressEvent(QKeyEvent *event);
 
     private:
         QSvgRenderer *renderer;
         QImage *image;
+        double scale;
 
 };
 
