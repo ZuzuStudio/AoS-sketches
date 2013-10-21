@@ -55,26 +55,26 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    MainWindow();
+    public:
+        MainWindow();
 
-public slots:
-    void openFile(const QString &path = QString());
-    void setRenderer(QAction *action);
+    public slots:
+        void openFile(const QString &path = QString());
+        void setRenderer(QAction *action);
 
-private:
-    QAction *m_nativeAction;
-    QAction *m_glAction;
-    QAction *m_imageAction;
-    QAction *m_highQualityAntialiasingAction;
-    QAction *m_backgroundAction;
-    QAction *m_outlineAction;
+    private:
+        QAction *m_nativeAction;
+        QAction *m_glAction;
+        QAction *m_imageAction;
+        QAction *m_highQualityAntialiasingAction;
+        QAction *m_backgroundAction;
+        QAction *m_outlineAction;
 
-    SvgView *m_view;
+        SvgView *m_view;
 
-    QString m_currentPath;
+        QString m_currentPath;
 };
 
 #endif

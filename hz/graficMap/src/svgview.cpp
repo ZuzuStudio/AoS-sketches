@@ -62,7 +62,6 @@ SvgView::SvgView(QWidget *parent)
     setTransformationAnchor(AnchorUnderMouse);
     setDragMode(ScrollHandDrag);
     setViewportUpdateMode(FullViewportUpdate);
-
     // Prepare background check-board pattern
     QPixmap tilePixmap(64, 64);
     tilePixmap.fill(Qt::white);
@@ -71,7 +70,6 @@ SvgView::SvgView(QWidget *parent)
     tilePainter.fillRect(0, 0, 32, 32, color);
     tilePainter.fillRect(32, 32, 32, 32, color);
     tilePainter.end();
-
     setBackgroundBrush(tilePixmap);
 }
 
@@ -85,28 +83,23 @@ void SvgView::drawBackground(QPainter *p, const QRectF &)
 
 void SvgView::openFile(const QFile &file)
 {
-    if (!file.exists())
+    if(!file.exists())
         return;
 
     QGraphicsScene *s = scene();
-
     bool drawBackground = (m_backgroundItem ? m_backgroundItem->isVisible() : false);
     bool drawOutline = (m_outlineItem ? m_outlineItem->isVisible() : true);
-
     s->clear();
     resetTransform();
-
     m_svgItem = new QGraphicsSvgItem(file.fileName());
     m_svgItem->setFlags(QGraphicsItem::ItemClipsToShape);
     m_svgItem->setCacheMode(QGraphicsItem::NoCache);
     m_svgItem->setZValue(0);
-
     m_backgroundItem = new QGraphicsRectItem(m_svgItem->boundingRect());
     m_backgroundItem->setBrush(Qt::white);
     m_backgroundItem->setPen(Qt::NoPen);
     m_backgroundItem->setVisible(drawBackground);
     m_backgroundItem->setZValue(-1);
-
     m_outlineItem = new QGraphicsRectItem(m_svgItem->boundingRect());
     QPen outline(Qt::black, 2, Qt::DashLine);
     outline.setCosmetic(true);
@@ -114,11 +107,9 @@ void SvgView::openFile(const QFile &file)
     m_outlineItem->setBrush(Qt::NoBrush);
     m_outlineItem->setVisible(drawOutline);
     m_outlineItem->setZValue(1);
-
     s->addItem(m_backgroundItem);
     s->addItem(m_svgItem);
     s->addItem(m_outlineItem);
-
     s->setSceneRect(m_outlineItem->boundingRect().adjusted(-10, -10, 10, 10));
 }
 
@@ -126,11 +117,14 @@ void SvgView::setRenderer(RendererType type)
 {
     m_renderer = type;
 
-    if (m_renderer == OpenGL) {
+    if(m_renderer == OpenGL)
+    {
 #ifndef QT_NO_OPENGL
         setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
 #endif
-    } else {
+    }
+    else
+    {
         setViewport(new QWidget);
     }
 }
@@ -146,15 +140,15 @@ void SvgView::setHighQualityAntialiasing(bool highQualityAntialiasing)
 
 void SvgView::setViewBackground(bool enable)
 {
-    if (!m_backgroundItem)
-          return;
+    if(!m_backgroundItem)
+        return;
 
     m_backgroundItem->setVisible(enable);
 }
 
 void SvgView::setViewOutline(bool enable)
 {
-    if (!m_outlineItem)
+    if(!m_outlineItem)
         return;
 
     m_outlineItem->setVisible(enable);
@@ -162,19 +156,21 @@ void SvgView::setViewOutline(bool enable)
 
 void SvgView::paintEvent(QPaintEvent *event)
 {
-    if (m_renderer == Image) {
-        if (m_image.size() != viewport()->size()) {
+    if(m_renderer == Image)
+    {
+        if(m_image.size() != viewport()->size())
+        {
             m_image = QImage(viewport()->size(), QImage::Format_ARGB32_Premultiplied);
         }
 
         QPainter imagePainter(&m_image);
         QGraphicsView::render(&imagePainter);
         imagePainter.end();
-
         QPainter p(viewport());
         p.drawImage(0, 0, m_image);
-
-    } else {
+    }
+    else
+    {
         QGraphicsView::paintEvent(event);
     }
 }

@@ -51,33 +51,33 @@ QT_END_NAMESPACE
 
 class SvgView : public QGraphicsView
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    enum RendererType { Native, OpenGL, Image };
+    public:
+        enum RendererType { Native, OpenGL, Image };
 
-    SvgView(QWidget *parent = 0);
+        SvgView(QWidget *parent = 0);
 
-    void openFile(const QFile &file);
-    void setRenderer(RendererType type = Native);
-    void drawBackground(QPainter *p, const QRectF &rect);
+        void openFile(const QFile &file);
+        void setRenderer(RendererType type = Native);
+        void drawBackground(QPainter *p, const QRectF &rect);
 
-public slots:
-    void setHighQualityAntialiasing(bool highQualityAntialiasing);
-    void setViewBackground(bool enable);
-    void setViewOutline(bool enable);
+    public slots:
+        void setHighQualityAntialiasing(bool highQualityAntialiasing);
+        void setViewBackground(bool enable);
+        void setViewOutline(bool enable);
 
-protected:
-    void wheelEvent(QWheelEvent *event);
-    void paintEvent(QPaintEvent *event);
+    protected:
+        void wheelEvent(QWheelEvent *event);
+        void paintEvent(QPaintEvent *event);
 
-private:
-    RendererType m_renderer;
+    private:
+        RendererType m_renderer;
 
-    QGraphicsItem *m_svgItem;
-    QGraphicsRectItem *m_backgroundItem;
-    QGraphicsRectItem *m_outlineItem;
+        QGraphicsItem *m_svgItem;
+        QGraphicsRectItem *m_backgroundItem;
+        QGraphicsRectItem *m_outlineItem;
 
-    QImage m_image;
+        QImage m_image;
 };
 #endif // SVGVIEW_H
