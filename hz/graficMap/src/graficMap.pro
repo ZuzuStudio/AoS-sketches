@@ -1,9 +1,15 @@
 HEADERS       = \
-    mapwidget.h
+    mapwidget.h \
+    graficmap.h \
+    graficitem.h \
+    levelofdetalisation.h
 RESOURCES     =
 SOURCES       = \
     main.cpp \
-    mapwidget.cpp
+    mapwidget.cpp \
+    graficmap.cpp \
+    graficitem.cpp \
+    levelofdetalisation.cpp
 QT           += widgets svg xml
 
 qtHaveModule(opengl): QT += opengl
