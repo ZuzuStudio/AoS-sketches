@@ -1,8 +1,9 @@
 HEADERS       = \
-    widget.h
+    mapwidget.h
 RESOURCES     =
-SOURCES       = main.cpp \
-    widget.cpp
+SOURCES       = \
+    main.cpp \
+    mapwidget.cpp
 QT           += widgets svg xml
 
 qtHaveModule(opengl): QT += opengl

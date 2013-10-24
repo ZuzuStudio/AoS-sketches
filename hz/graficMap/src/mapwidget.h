@@ -1,5 +1,5 @@
-#ifndef WIDGET_H
-#define WIDGET_H
+#ifndef MAPWIDGET_H
+#define MAPWIDGET_H
 
 #include <QWidget>
 #include <QSvgRenderer>
@@ -7,12 +7,12 @@
 #include <QPainter>
 #include <QKeyEvent>
 
-class Widget : public QWidget
+class MapWidget : public QWidget
 {
         Q_OBJECT
     public:
-        explicit Widget(QWidget *parent = 0);
-        ~Widget();
+        explicit MapWidget(QWidget *parent = 0);
+        ~MapWidget();
 
     signals:
 
@@ -29,4 +29,4 @@ class Widget : public QWidget
 
 };
 
-#endif // WIDGET_H
+#endif // MAPWIDGET_H

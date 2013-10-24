@@ -1,12 +1,12 @@
-#include "widget.h"
+#include "mapwidget.h"
 #include <QDebug>
 #include <qmath.h>
 
-Widget::Widget(QWidget *parent) :
+MapWidget::MapWidget(QWidget *parent) :
     QWidget(parent),
     renderer(0),
     image(0),
-    scale(3.0)
+    scale(30.0)
 {
     image = new QImage(size(), QImage::Format_ARGB32_Premultiplied);
     renderer = new QSvgRenderer(QString("../../hillFlatLod2_res.svg"), this);//QString("../../hillFlat_res.svg")//QString("../src/files/bubbles.svg")
@@ -14,12 +14,12 @@ Widget::Widget(QWidget *parent) :
     connect(renderer, SIGNAL(repaintNeeded()), this, SLOT(repaint()));
 }
 
-Widget::~Widget()
+MapWidget::~MapWidget()
 {
     delete image;
 }
 
-void Widget::paintEvent(QPaintEvent *event)
+void MapWidget::paintEvent(QPaintEvent *event)
 {
     if(image->size() != this->size())
     {
@@ -41,7 +41,7 @@ void Widget::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
 }
 
-void Widget::keyPressEvent(QKeyEvent *event)
+void MapWidget::keyPressEvent(QKeyEvent *event)
 {
     switch(event->key())
     {
