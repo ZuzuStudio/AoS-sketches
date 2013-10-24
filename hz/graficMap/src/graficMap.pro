@@ -1,10 +1,7 @@
-HEADERS       = mainwindow.h \
-                svgview.h \
+HEADERS       = \
     widget.h
-RESOURCES     = svgviewer.qrc
+RESOURCES     =
 SOURCES       = main.cpp \
-                mainwindow.cpp \
-                svgview.cpp \
     widget.cpp
 QT           += widgets svg xml
 

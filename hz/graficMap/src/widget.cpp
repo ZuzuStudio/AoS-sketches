@@ -9,7 +9,7 @@ Widget::Widget(QWidget *parent) :
     scale(3.0)
 {
     image = new QImage(size(), QImage::Format_ARGB32_Premultiplied);
-    renderer = new QSvgRenderer(QString("../../hillFlatLod1_res.svg"), this);//QString("../../hillFlat_res.svg")//QString("../src/files/bubbles.svg")
+    renderer = new QSvgRenderer(QString("../../hillFlatLod2_res.svg"), this);//QString("../../hillFlat_res.svg")//QString("../src/files/bubbles.svg")
     //---------------//
     connect(renderer, SIGNAL(repaintNeeded()), this, SLOT(repaint()));
 }
