@@ -3,8 +3,8 @@
 
 class GraficMap
 {
-public:
-    GraficMap();
+    public:
+        GraficMap();
 };
 
 #endif // GRAFICMAP_H

@@ -14,7 +14,7 @@ QT           += widgets svg xml
 
 qtHaveModule(opengl): QT += opengl
 
-CONFIG += console
+CONFIG += console c++11
 
 # install
 # target.path = $$[QT_INSTALL_EXAMPLES]/svg/svgviewer
