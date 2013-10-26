@@ -7,13 +7,13 @@ class LevelOfDetalisation
 {
     public:
         LevelOfDetalisation(QString fileName, double upperLimit, double downLimit);
-        ~LevelOfDetalisation() noexcept;
+        ~LevelOfDetalisation() throw();
 
-        void setUpperLimit(double value)  noexcept {upperLimitField = value;}
-        double upperLimit() const noexcept {return upperLimitField;}
-        void setDownLimit(double value) noexcept {downLimitField = value;}
-        double downLimit() const noexcept {return downLimitField;}
-        const QSvgRenderer *renderer() const noexcept {return rendererField;}
+        void setUpperLimit(double value)  throw() {upperLimitField = value;}
+        double upperLimit() const throw() {return upperLimitField;}
+        void setDownLimit(double value) throw() {downLimitField = value;}
+        double downLimit() const throw() {return downLimitField;}
+        const QSvgRenderer *renderer() const throw() {return rendererField;}
     private:
         QSvgRenderer *rendererField;
         double upperLimitField;
