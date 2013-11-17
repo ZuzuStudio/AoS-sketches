@@ -1,0 +1,6 @@
+﻿
+*.user
+*.autosave
+*.desktop
+*Release/
+*Debug/
