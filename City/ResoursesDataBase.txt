@@ -1,0 +1,9 @@
+Labor :files/labor.png 15 Labor
+FirstWorker :files/workerFirst.png 12
+SecondWorker :files/workerSecond.png 10
+ThirdWorker :files/workerThird.png 30
+HardDrive :files/HardDrive.png 30 Hard Drive
+Motherboard :files/motherboard.png 50
+Processor :files/Processor.png -1
+RAM :files/RAM.png 10 why?
+Этот файлик добавить в папочку с скомпилирванным проектом :)

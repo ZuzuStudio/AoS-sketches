@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>files/CityDialogStyle.css</file>
+        <file>files/workerFirst.png</file>
+        <file>files/workerSecond.png</file>
+        <file>files/workerThird.png</file>
+        <file>files/labor.png</file>
+        <file>files/motherboard.png</file>
+        <file>files/Processor.png</file>
+        <file>files/RAM.png</file>
+        <file>files/Modem.png</file>
+        <file>files/HardDrive.png</file>
+    </qresource>
+</RCC>
