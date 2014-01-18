@@ -6,4 +6,4 @@ HardDrive :files/HardDrive.png 30 Hard Drive
 Motherboard :files/motherboard.png 50
 Processor :files/Processor.png -1
 RAM :files/RAM.png 10 why?
-Этот файлик добавить в папочку с скомпилирванным проектом :)
+Р­С‚РѕС‚ С„Р°Р№Р»РёРє РґРѕР±Р°РІРёС‚СЊ РІ РїР°РїРѕС‡РєСѓ СЃ СЃРєРѕРјРїРёР»РёСЂРІР°РЅРЅС‹Рј РїСЂРѕРµРєС‚РѕРј :)
